@@ -16,13 +16,19 @@ export default function Notifications() {
   useEffect(() => {
     // Fetch notifications initially and set up polling
     fetchNotifications();
-
+  
     const interval = setInterval(() => {
       fetchNotifications();
-
-    }, 10000); // Poll every 10 seconds
-
-    return () => clearInterval(interval);
+    }, 20000); // Poll every 20 seconds
+  
+    const timeout = setTimeout(() => {
+      clearInterval(interval); // Stop polling after 10 minutes
+    }, 600000); // 10 minutes = 600000 milliseconds
+  
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (

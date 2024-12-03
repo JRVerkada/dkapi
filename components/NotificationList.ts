@@ -9,6 +9,8 @@ export type Notification = {
   device_id:string,
   notification_type:string, 
   org_id:string, 
+  image_url: string,
+  video_url: string,
   fulldata:string
 };
 
@@ -23,6 +25,8 @@ export async function GetNotifications(): Promise<Notification[]> {
         device_id: body.data.device_id?body.data.device_id:"",
         notification_type: body.data.notification_type?body.data.notification_type:"",
         org_id: body.org_id,
+        image_url: body.data.image_url?body.data.image_url:"",
+        video_url: body.data.video_url?body.data.video_url:"",
         fulldata: JSON.stringify(body, null, 2)
       };
         return notification;
