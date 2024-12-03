@@ -20,7 +20,7 @@ export default function Notifications() {
     const interval = setInterval(() => {
       fetchNotifications();
 
-    }, 5000); // Poll every 5 seconds
+    }, 10000); // Poll every 10 seconds
 
     return () => clearInterval(interval);
   }, []);
