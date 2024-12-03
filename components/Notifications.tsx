@@ -38,9 +38,9 @@ export default function Notifications() {
         <span className="text-gray-600 dark:text-gray-200 flex-1 text-center">notification_type</span>
       </div>
       {notifications
-  //.filter((notification: any) => notification.data.notification_type == "person_of_interest")
-  .map((notification: Notification) => (
+  .map((notification: Notification, index) => (
     <NotificationLine 
+      key = {index}
       notification={notification}
     />
   ))}

@@ -4,10 +4,11 @@ import { format } from 'date-fns';
 import { Notification } from './NotificationList';
 
 type NotificationLineProps = {
+  key: number,
   notification: Notification;
 };
 
-export default function NotificationLine({ notification }: NotificationLineProps) {
+export default function NotificationLine({ key, notification }: NotificationLineProps) {
   // State to control the visibility of additional information
   const [isExpanded, setIsExpanded] = useState(false);
 

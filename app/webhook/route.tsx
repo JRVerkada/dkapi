@@ -6,9 +6,9 @@ export async function GET()
     return NextResponse.json({ message: 'SEND POST'});
 }
 
-export async function POST(request: { json: () => any; }) {
+export async function POST(request: Request) {
     // Parsing the incoming request body
-    const body = await request.json();
+    const body = await request.text();
     await AddNotification(body);
     return NextResponse.json({ message: 'Data received', data: body });
   }

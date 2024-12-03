@@ -1,3 +1,4 @@
+"use server"
 const notifications: Notification[] = [];
 
 
@@ -10,12 +11,13 @@ export type Notification = {
 };
 
 export async function GetNotifications():Promise<Notification[]> {    
-  console.log(notifications.length);
+
     return notifications;
   }
   
-export async function AddNotification(body: any) {
-    console.log(body);
+export async function AddNotification(request: string) {
+  try {
+    const body  = JSON.parse(request);
     const notif: Notification = 
     {
       created_at: body.created_at ,
@@ -24,5 +26,12 @@ export async function AddNotification(body: any) {
       org_id: body.org_id,
       fulldata: body
     }
+    console.log(body);
     notifications.push(notif);
   }
+  catch (error) {
+    // Handle JSON parsing errors if needed
+    console.log("Invalid JSON format");
+  }
+  }
+  
