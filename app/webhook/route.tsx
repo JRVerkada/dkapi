@@ -8,7 +8,7 @@ export async function GET()
 
 export async function POST(request: Request) {
     // Parsing the incoming request body
-    const body = await request.text();
+    const body = await request.json();
     await AddNotification(body);
     return NextResponse.json({ message: 'Data received', data: body });
   }

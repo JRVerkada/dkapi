@@ -10,7 +10,6 @@ export default function Notifications() {
 
   const fetchNotifications = async () => {
     const data = await GetNotifications();
-    console.log(data);
     setNotifications(data);
   };
 

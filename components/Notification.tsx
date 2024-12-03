@@ -8,7 +8,7 @@ type NotificationLineProps = {
   notification: Notification;
 };
 
-export default function NotificationLine({ key, notification }: NotificationLineProps) {
+export default function NotificationLine({notification }: NotificationLineProps) {
   // State to control the visibility of additional information
   const [isExpanded, setIsExpanded] = useState(false);
 
