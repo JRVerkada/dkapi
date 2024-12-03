@@ -50,14 +50,12 @@ export default function NotificationLine({notification }: NotificationLineProps)
           {/* Render additional information from fulldata */}
           {notification.fulldata && (
             <>
-            <div className="mt-2">
-              <img src={notification.image_url} alt={notification.image_url} className="w-full max-w-sm mx-auto" />
-            </div>
             <div className="px-2 py-3"> 
-        <a href={notification.video_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
+            <img src={notification.image_url} alt={notification.image_url} />
+              <a href={notification.video_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">
         Video Link
-        </a><br/>
-              Full Event:
+        </a>
+              <br/>Full Event:
             <pre className="bg-gray-100 dark:bg-gray-700 p-2 rounded overflow-auto whitespace-pre-wrap break-words">
             <code 
           className="text-gray-600 dark:text-gray-200"
