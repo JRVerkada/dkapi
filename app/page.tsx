@@ -68,6 +68,24 @@ export default function Home() {
       />
       Go to verkada.com →
     </a>
+
+    <a
+      className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+      href="https://github.com/JRVerkada/dkapi"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        aria-hidden
+        src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+        alt="Github"
+        width={16}
+        height={16}
+      />
+      Source Code →
+    </a>
+
+    
   </footer>
 </div>
   );

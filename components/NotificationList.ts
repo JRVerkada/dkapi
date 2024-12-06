@@ -43,6 +43,9 @@ export async function GetAllNotifications(): Promise<Notification[]> {
   for (const orgId of orgIds) {
     const notifications = await GetNotifications(orgId);
     allNotifications = allNotifications.concat(notifications);
+
+    // Sort all notifications by created_at in descending order (newest first)
+  allNotifications.sort((a, b) => b.created_at - a.created_at);
   }
 
   return allNotifications;
