@@ -25,7 +25,7 @@ export async function GetNotifications(org_id: string): Promise<Notification[]> 
       device_id: body.data.device_id ? body.data.device_id : "",
       notification_type: body.data.notification_type
         ? body.data.notification_type
-        : "",
+        : body.webhook_type,
       org_id: body.org_id,
       image_url: body.data.image_url ? body.data.image_url : "",
       video_url: body.data.video_url ? body.data.video_url : "",
