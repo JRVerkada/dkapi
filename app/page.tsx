@@ -1,9 +1,6 @@
 
 import Image from "next/image";
 import Notifications from "../components/Notifications";
-import Window from "/public/windows.svg"
-import API from "/public/api.svg"
-import Globe from "/public/globe.svg"
 
 export default function Home() {
 
@@ -33,7 +30,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src= {API}
+        src= "/api.svg"
         alt="File icon"
         width={16}
         height={16}
@@ -49,7 +46,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src={Window}
+        src="/window.svg"
         alt="Window icon"
         width={16}
         height={16}
@@ -64,7 +61,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src={Globe}
+        src="/globe.svg"
         alt="Globe icon"
         width={16}
         height={16}
