@@ -1,6 +1,9 @@
 
 import Image from "next/image";
 import Notifications from "../components/Notifications";
+import Window from "../icons/windows.svg"
+import API from "../icons/api.svg"
+import Globe from "../icons/globe.svg"
 
 export default function Home() {
 
@@ -30,7 +33,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src="https://nextjs.org/icons/file.svg"
+        src= {API}
         alt="File icon"
         width={16}
         height={16}
@@ -46,7 +49,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src="https://nextjs.org/icons/window.svg"
+        src={Window}
         alt="Window icon"
         width={16}
         height={16}
@@ -61,7 +64,7 @@ export default function Home() {
     >
       <Image
         aria-hidden
-        src="https://nextjs.org/icons/globe.svg"
+        src={Globe}
         alt="Globe icon"
         width={16}
         height={16}
