@@ -1,9 +1,9 @@
 
 import Image from "next/image";
 import Notifications from "../components/Notifications";
-import Window from "../public/windows.svg"
-import API from "../public/api.svg"
-import Globe from "../public/globe.svg"
+import Window from "/public/windows.svg"
+import API from "/public/api.svg"
+import Globe from "/public/globe.svg"
 
 export default function Home() {
 
