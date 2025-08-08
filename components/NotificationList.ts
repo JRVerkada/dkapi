@@ -68,7 +68,8 @@ export async function AddNotification(request: any) {
     // Add notification to the list and trim to 50 items
     await redis.lpush(redisKey, notifString);
     await redis.ltrim(redisKey, 0, 49);
-    if(request.webhook_type == 'lpr' && request.data.license_plate_number == 'SJD6534Y')
+
+    if(request.webhook_type == 'lpr' && request.data.license_plate_number == 'SBP1818T')
     {
       console.log("PLATE MATCH")
        // Use fetch to call your GET endpoint
