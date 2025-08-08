@@ -22,7 +22,7 @@ export async function GetNotifications(org_id: string): Promise<Notification[]> 
   return notifications.map((body: any) => {
     const notification: Notification = {
       created_at: body.created_at,
-      device_id: body.data.device_id ? body.data.device_id : "",
+      device_id: body.data.device_id ? body.data.device_id : (body.data.camera_id ? body.data.camera_id : ""),
       notification_type: body.data.notification_type
         ? body.data.notification_type
         : body.webhook_type,
@@ -58,7 +58,7 @@ export async function AddNotification(request: any) {
     if (!org_id) {
       throw new Error("org_id is required in the notification data");
     }
-
+    console.log(request);
     const redisKey = `notifications:${org_id}`;
     const notifString = JSON.stringify(request); // Stringify the request to store it
 
@@ -68,6 +68,23 @@ export async function AddNotification(request: any) {
     // Add notification to the list and trim to 50 items
     await redis.lpush(redisKey, notifString);
     await redis.ltrim(redisKey, 0, 49);
+    if(request.webhook_type == 'lpr' && request.data.license_plate_number == 'SJD6534Y')
+    {
+      console.log("PLATE MATCH")
+       // Use fetch to call your GET endpoint
+      // NOTE: This assumes AddNotification runs in the same Next.js app.
+      // If not, you'll need the full URL: 'https://your-domain.com/api/remoteunlock'
+      const unlockResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/remoteunlock`);
+
+      if (!unlockResponse.ok) {
+        const errorDetails = await unlockResponse.json();
+        console.error('Failed to trigger remote unlock:', errorDetails);
+      } else {
+        const successDetails = await unlockResponse.json();
+        console.log('Remote unlock successfully triggered:', successDetails);
+      }
+    }
+    
   } catch (error) {
     console.log("Error adding notification:", error);
   }
